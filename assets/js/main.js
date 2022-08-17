@@ -1,13 +1,4 @@
-/* 
-const computerChoice = document.getElementsByClassName('computerChoice')
-const chooseIcon = document.getElementsByClassName('chooseBlock')
-const button = document.querySelector('button')  
-const userChoice = document.getElementsByClassName('userChoice')
-const restart = document.getElementsByClassName('restart')
-*/
 
-
-// const roundChoice = document.querySelector('radio')
 const resultDisplay = document.getElementById('resultDisplay')
 
 const choices = ['rock', 'paper', 'scissors']
@@ -15,8 +6,9 @@ let round = 0
 let userPoint = 0
 let computerPoint = 0
 let userChosen
+let userOutput = document.getElementById('user')
+let computerOutput = document.getElementById('computer')
 
-let moin = 'Hallo!'
 
 const check = (uChoice) => {
 
@@ -29,26 +21,42 @@ const check = (uChoice) => {
         let computerChoice = Math.floor(Math.random() * 3)
         console.log(computerChoice)
 
-        let choice = `${choices[uChoice]} ${choices[computerChoice]}`
+        let choice = `${choices[uChoice]}${choices[computerChoice]}`
 
         console.log(choice)
 
         switch (choice) {
             case 'scissorspaper':
+                resultDisplay.innerHTML = `SCISSORS beats PAPER`
             case 'rockscissors':
+                resultDisplay.innerHTML = `ROCK beats SCISSORS`
             case 'paperrock':
+                resultDisplay.innerHTML = `PAPER beats ROCK`
                 userPoint++
+                userOutput.innerHTML = userPoint
+                computerOutput.innerHTML = computerPoint
+                //console.log('userPoints', userPoint, 'computerPoints', computerPoint)
                 break
             case 'paperscissors':
+                resultDisplay.innerHTML = `PAPER looses against SCISSORS`
             case 'scissorsrock':
+                resultDisplay.innerHTML = `SCISSORS looses against ROCK `
             case 'rockpaper':
+                resultDisplay.innerHTML = `ROCK looses against PAPER`
                 computerPoint++
-                //resultDisplay.innerHTML = "YOU LOSE!"
+                userOutput.innerHTML = userPoint
+                computerOutput.innerHTML = computerPoint
+                //console.log('userPoints', userPoint, 'computerPoints', computerPoint)
                 break
             case 'paperpaper':
+                resultDisplay.innerHTML = `❌DARN IT TRY AGAIN!❌`
             case 'scissorsscissors':
+                resultDisplay.innerHTML = `❌DARN IT TRY AGAIN!❌`
             case 'rockrock':
-                //resultDisplay.innerHTML = "ITS A DRAW!"
+                resultDisplay.innerHTML = `❌DARN IT TRY AGAIN!❌`
+                userOutput.innerHTML = userPoint
+                computerOutput.innerHTML = computerPoint
+                //console.log('userPoints', userPoint, 'computerPoints', computerPoint)
                 break
     }
         round++
@@ -68,15 +76,15 @@ const check = (uChoice) => {
 
 const whosTheWinner = (user, pc) =>{
     
-    if(user >= pc){
-    console.log('You WIN')
+    if(user > pc){
+    console.log('YOU WIN')
     resultDisplay.innerHTML = "YOU WIN!"
-}else if(user <= pc){
-    console.log('You LOOSE')
+}else if(user < pc){
+    console.log('YOU LOOSE')
     resultDisplay.innerHTML = "YOU LOSE!"
 }else if(user === pc){
     console.log('Its a DRAW')
-    resultDisplay.innerHTML = "IT'S A DRAW!"
+    resultDisplay.innerHTML = "IT'S A DRAW"
 }
 }
 
