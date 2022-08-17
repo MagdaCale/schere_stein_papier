@@ -8,6 +8,66 @@
     <title>Document</title>
 </head>
 <body>
+    <header> 
+        <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <main>
+        <section class="firstBlock">
+            <article class="hMRounds">
+                <h3>how many rounds</h3>
+                <div>
+                    <input type="radio" name="round" value="5" >
+                    <label>5</label>
+                    <input type="radio" name="round" value="10">
+                    <label>10</label>
+                    <input type="radio" name="round" value="15">
+                    <label>15</label>
+                    <input type="radio" name="round" value="20">
+                    <label>20</label>
+                </div>
+            </article>
+
+            <article class="roundNumbers">
+                <h2>how many rounds</h2>
+                <div>
+                    <p class="roundNumber"></p>
+                    <p>/</p>
+                    <p class="ofRound"></p>
+                </div>
+            </article>
+        </section>
+
+        <section class="secondBlock">
+            <article class="resultArticle">
+                <p>USER</p>
+                <div>
+                    <p id="userChoice"></p>
+                    <p>:</p>
+                    <p id="computerChoice"></p>
+                </div>
+                <p>COMP</p>
+            </article>
+        </section>
+
+        <div id="resultDisplay"></div>
+        
+        <section class="chooseBlock">
+            <button onclick="choiceRock()">ROCK</button>
+            <button onclick="choiceScissors()">SCISSORS</button>
+            <button onclick="choicePaper()">PAPER</button>
+        </section>
+        
+        <section class="yourMove">
+            <p>MAKE YOUR MOVE</p>
+        </section>
+        
+        <section>
+            <p class="restart">restart</p>
+        </section>
+        
+    </main>
+
     <script src="./assets/js/main.js"></script>
 </body>
 </html>
